@@ -5,10 +5,11 @@ from PIL import Image
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.inception_v3 import preprocess_input as inception_preprocess_input
-
+import os
+model_path = os.path.join(os.path.dirname(__file__), "best_trained_save.h5")
 @st.cache(allow_output_mutation=True)
 def load_model():
-    model = tf.keras.models.load_model("best_trained_save.h5")
+    model = tf.keras.models.load_model(model_path)
     return model
 
 def predict_class(img, model):
