@@ -8,7 +8,7 @@ from tensorflow.keras.losses import SparseCategoricalCrossentropy  # Import this
 @st.cache(allow_output_mutation=True)
 def load_model():
 	model = tf.keras.models.load_model(
-        'flower_model_trained.hdf5',
+        'bush.hdf5',
         custom_objects={'SparseCategoricalCrossentropy': SparseCategoricalCrossentropy()}
     )
 	return model
