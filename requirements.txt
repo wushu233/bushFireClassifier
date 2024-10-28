@@ -1,2 +1,2 @@
 streamlit==1.30.0
-tensorflow
+tensorflow==2.13.1
