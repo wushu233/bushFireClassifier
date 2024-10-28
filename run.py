@@ -2,11 +2,15 @@ import streamlit as st
 import tensorflow as tf
 import numpy as np
 from PIL import Image
+from tensorflow.keras.losses import SparseCategoricalCrossentropy  # Import this explicitly
 
 
 @st.cache(allow_output_mutation=True)
 def load_model():
-	model = tf.keras.models.load_model('flower_model_trained.hdf5')
+	model = tf.keras.models.load_model(
+        'flower_model_trained.hdf5',
+        custom_objects={'SparseCategoricalCrossentropy': SparseCategoricalCrossentropy()}
+    )
 	return model
 
 
