@@ -2,14 +2,14 @@ import streamlit as st
 import tensorflow as tf
 import numpy as np
 from PIL import Image
-from keras.models import load_model
-from keras.preprocessing import image
-from keras.applications.inception_v3 import preprocess_input as inception_preprocess_input
+from tensorflow.keras.models import load_model
+from tensorflow.keras.preprocessing import image
+from tensorflow.keras.applications.inception_v3 import preprocess_input as inception_preprocess_input
 import os
+
 @st.cache(allow_output_mutation=True)
 def load_model():
     model = tf.keras.models.load_model("best_trained_save.h5")
-
     return model
 
 def predict_class(img, model):
